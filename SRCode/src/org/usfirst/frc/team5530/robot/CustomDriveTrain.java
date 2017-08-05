@@ -18,19 +18,34 @@ public class CustomDriveTrain {
 		lDrive1 = new Talon(l1);
 		lDrive2 = new Talon(l2);
 	}
-	
+	//A method to limit an input double to the range -1.0 to 1.0
+	public double limit(double prelimNumber){
+		if(prelimNumber >= 1.0){
+			return 1.0;
+					
+		}else if(prelimNumber <= -1.0){
+			
+			return -1.0;
+		}else if(prelimNumber < 1.0 && prelimNumber >-1.0){
+			
+			return prelimNumber;
+		}else{
+			
+			return 0;
+		}
+	}
 	//Calculates right speed based on controller output
 	public double XBControllerR(double lStick, double rTrigger, double lTrigger) {
 		//speed of left side = amount Accelerator is pushed down minus
 		//amount Deccelerator is pushed down - lateral input from left Joystick
-		return rTrigger - lTrigger - lStick;
+		return limit(rTrigger - lTrigger - lStick);
 	}
 	
 	//Calculates left speed based on Controller output
 	public double XBControllerL(double lStick, double rTrigger, double lTrigger){
 		//speed of left side = amount Accelerator is pushed down minus
 		//amount Deccelerator is pushed down + lateral input from left Joystick
-		return rTrigger - lTrigger + lStick;
+		return limit(rTrigger - lTrigger + lStick);
 		
 	}
 	//Sets the speed for both sides using XBController methods
@@ -43,5 +58,4 @@ public class CustomDriveTrain {
 		
 		
 	}
-	limit
 };
