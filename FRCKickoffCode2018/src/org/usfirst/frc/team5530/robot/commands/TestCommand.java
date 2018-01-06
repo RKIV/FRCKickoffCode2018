@@ -6,9 +6,9 @@ import org.usfirst.frc.team5530.robot.subsystems.*;
 /**
  *
  */
-public class TestComman extends Command {
+public class TestCommand extends Command {
 
-    public TestComman() {
+    public TestCommand() {
     	requires(new Drivetrain());
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
