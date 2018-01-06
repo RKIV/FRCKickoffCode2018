@@ -49,7 +49,7 @@ public class Controllers {
 	//get xAxis value of Xbox joystick
 	public double getStickHorizontal(char side){
 		if(side == 'r'){
-			return limit(XBController.getX(Hand.kRight));
+			return limit(XBController.getY(Hand.kRight));
 		
 		}else if(side == 'l'){
 			return limit(XBController.getY(Hand.kLeft));
