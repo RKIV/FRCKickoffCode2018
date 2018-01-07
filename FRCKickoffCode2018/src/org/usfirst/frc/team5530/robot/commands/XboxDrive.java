@@ -19,7 +19,7 @@ public class XboxDrive extends Command{
 	
 	public XboxDrive() {
 		super("XboxDrive");
-		requires(new Drivetrain());
+		requires(Robot.drivetrain);
 	}
 	
 	//A method to limit an input double to the range -1.0 to 1.0

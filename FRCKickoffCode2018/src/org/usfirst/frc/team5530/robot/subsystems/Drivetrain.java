@@ -3,6 +3,7 @@ package org.usfirst.frc.team5530.robot.subsystems;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.*;
 
 import org.usfirst.frc.team5530.robot.RobotMap;
 import org.usfirst.frc.team5530.robot.commands.*;

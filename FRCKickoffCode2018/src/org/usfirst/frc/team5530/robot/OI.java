@@ -22,24 +22,43 @@ public class OI {
 	// number it is.
 	Joystick stick1 = new Joystick(0);
 	Joystick stick2 = new Joystick(1);
-	Joystick[] sticks = new Joystick[]{stick1, stick2};
 	public static XboxController XBController = new XboxController(2);
 	// There are a few additional built in buttons you can use. Additionally,
 	// by subclassing Button you can create custom triggers and bind those to
 	// commands the same as any other Button.
 	public OI(){
+		Joystick stick1 = new Joystick(0);
+		Joystick stick2 = new Joystick(1);
+		Button button1_1 = new JoystickButton(stick1, 1),
+				button2_1 = new JoystickButton(stick1, 2),
+				button3_1 = new JoystickButton(stick1, 3),
+				button4_1 = new JoystickButton(stick1, 4),
+				button5_1 = new JoystickButton(stick1, 5),
+				button6_1 = new JoystickButton(stick1, 6),
+				button7_1 = new JoystickButton(stick1, 7),
+				button8_1 = new JoystickButton(stick1, 8);
+		Button button1_2 = new JoystickButton(stick2, 1),
+				button2_2 = new JoystickButton(stick2, 2),
+				button3_2 = new JoystickButton(stick2, 3),
+				button4_2 = new JoystickButton(stick2, 4),
+				button5_2 = new JoystickButton(stick2, 5),
+				button6_2 = new JoystickButton(stick2, 6),
+				button7_2 = new JoystickButton(stick2, 7),
+				button8_2 = new JoystickButton(stick2, 8);
+		button1_1.whenPressed(new DriveDistance());
+
 		
-		Button[][] stickbutton = new Button[2][12];
-		
-		for(int stick=0; stick<=1; stick++){
-			for(int button=1; button<=12; button++) {
-				stickbutton[stick][button-1]= new JoystickButton(sticks[stick],button);
-			}
-		}
-		
-		stickbutton[0][0].whenPressed(new DriveDistance());
-		
-	}
+//		Button[][] stickbutton = new Button[2][12];
+//		
+//		for(int stick=0; stick<=1; stick++){
+//			for(int button=1; button<=12; button++) {
+//				stickbutton[stick][button-1]= new JoystickButton(sticks[stick],button);
+//			}
+//		}
+//		
+//		stickbutton[0][0].whenPressed(new DriveDistance());
+//		
+//	}
 
 	
 	
