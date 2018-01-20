@@ -1,6 +1,6 @@
 package org.usfirst.frc.team5530.robot.subsystems;
 
-import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType; 
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.*;
@@ -28,10 +28,10 @@ public class Drivetrain extends Subsystem {
 	//a method to set the second motor of the same side to follow (do the same thing as) the first motor of that side
 	public static void setFollowing() {
 		left2.changeControlMode(TalonControlMode.Follower);
-		left2.set(RobotMap.LeftMotor1);
+		left2.set((double)RobotMap.LeftMotor1);
 		
 		right2.changeControlMode(TalonControlMode.Follower);
-		right2.set(RobotMap.RightMotor1);
+		right2.set((double)RobotMap.RightMotor1);
 		
 		left.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		left.configEncoderCodesPerRev(1024);

@@ -1,14 +1,12 @@
 
 package org.usfirst.frc.team5530.robot;
 
-import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.IterativeRobot; 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import org.usfirst.frc.team5530.robot.commands.DriveDistance;
 
 //import all subsystems, no need to import anything else
 import org.usfirst.frc.team5530.robot.subsystems.*;
@@ -37,10 +35,6 @@ public class Robot extends IterativeRobot {
 		//create subystems
 		drivetrain = new Drivetrain();
 		oi = new OI();
-		
-		chooser.addDefault("Default Auto", new DriveDistance());
-		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", chooser);
 	}
 
 	/**
