@@ -8,10 +8,8 @@ import edu.wpi.first.wpilibj.*;
 import org.usfirst.frc.team5530.robot.RobotMap;
 import org.usfirst.frc.team5530.robot.commands.*;
 
-import com.ctre.CANTalon;
-import com.ctre.CANTalon.FeedbackDevice;
-import com.ctre.CANTalon.TalonControlMode;
-
+import com.ctre.phoenix.motorcontrol.can.*;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
 /**
  *
@@ -20,24 +18,18 @@ public class Drivetrain extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
 	
-	public static CANTalon left   = new CANTalon(RobotMap.LeftMotor1);
-	public static CANTalon left2  = new CANTalon(RobotMap.LeftMotor2);
-	public static CANTalon right  = new CANTalon(RobotMap.RightMotor1);
-	public static CANTalon right2 = new CANTalon(RobotMap.RightMotor2);
+	public static WPI_TalonSRX frontLeft   = new WPI_TalonSRX(RobotMap.FL);
+	public static WPI_TalonSRX frontRight  = new WPI_TalonSRX(RobotMap.FR);
+	public static WPI_TalonSRX backRight = new WPI_TalonSRX(RobotMap.BR);
+	public static WPI_TalonSRX backLeft  = new WPI_TalonSRX(RobotMap.BL);
+
 	
 	//a method to set the second motor of the same side to follow (do the same thing as) the first motor of that side
 	public static void setFollowing() {
-		left2.changeControlMode(TalonControlMode.Follower);
-		left2.set((double)RobotMap.LeftMotor1);
+		backRight.set(ControlMode.Follower, RobotMap.FR);
+		backLeft.set(ControlMode.Follower, RobotMap.FL);
 		
-		right2.changeControlMode(TalonControlMode.Follower);
-		right2.set((double)RobotMap.RightMotor1);
 		
-		left.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-		left.configEncoderCodesPerRev(1024);
-		
-		right.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-		right.configEncoderCodesPerRev(1024);	
 	}
 		//this method is called if no other command is called by the scheduler to use this subsystem	
 	public void initDefaultCommand() {

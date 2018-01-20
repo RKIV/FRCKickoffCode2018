@@ -11,9 +11,7 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import org.usfirst.frc.team5530.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team5530.robot.*;
 
-import com.ctre.CANTalon;
-import com.ctre.CANTalon.FeedbackDevice;
-import com.ctre.CANTalon.TalonControlMode;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
 public class XboxDrive extends Command{
 	
@@ -82,10 +80,8 @@ public class XboxDrive extends Command{
 		//Sets the speed for both sides using XBController methods
 		public void setSpeeds(double lStick, double rTrigger, double lTrigger){
 			
-			Drivetrain.left.changeControlMode(TalonControlMode.PercentVbus);
-			Drivetrain.right.changeControlMode(TalonControlMode.PercentVbus);
-			Drivetrain.right.set(XBControllerR(lStick, rTrigger, lTrigger));
-			Drivetrain.left.set(XBControllerL(lStick, rTrigger, lTrigger));
+			Drivetrain.frontRight.set(ControlMode.PercentOutput, XBControllerR(lStick, rTrigger, lTrigger));
+			Drivetrain.frontLeft.set(ControlMode.PercentOutput, XBControllerL(lStick, rTrigger, lTrigger));
 			
 			
 		}
